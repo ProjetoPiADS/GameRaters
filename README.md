@@ -9,5 +9,5 @@
 - Lista de jogos mais bem avaliados do site.
 - Usuário poderá alterar as informações do seu perfil.
 
-#Protótipo Tela Home
+##Protótipo Tela Home
 ![Protótipo da Tela Home do Projeto](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/Prototipo.png)
