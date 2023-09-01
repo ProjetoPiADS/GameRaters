@@ -8,3 +8,6 @@
 .Média geral da nota do jogo com base no que foi inserido pelos usuários.
 .Lista de jogos mais bem avaliados do site.
 .Usuário poderá alterar as informações do seu perfil.
+
+
+![Protótipo da Tela Home do Projeto](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/Prototipo.png)
