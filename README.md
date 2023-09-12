@@ -9,6 +9,17 @@
 - Lista de jogos mais bem avaliados do site.
 - Usuário poderá alterar as informações do seu perfil.
 
+# Protótipo Tela Login
+![Protótipo da tela login](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/Login%20Page.png)
+
+# Protótipo Tela Registrar
+
+![Protótipo da tela de cadastro](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/Cadastro%20Page.png)
+
 # Protótipo Tela Home
 
 ![Protótipo da Tela Home do Projeto](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/Prototipo.png)
+
+# Diagrama de classe
+
+![Diagrama de classe do projeto](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/Diagrama%20(1).jpg)
