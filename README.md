@@ -20,6 +20,10 @@
 
 ![Protótipo da Tela Home do Projeto](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/Prototipo.png)
 
+# Protótipo Tela Jogos
+
+![Protótipo Tela Jogos](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/TelaJogos.jpg)
+
 # Diagrama de classe
 
 ![Diagrama de classe do projeto](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/Diagrama%20(1).jpg)
