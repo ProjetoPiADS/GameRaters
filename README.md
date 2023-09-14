@@ -20,6 +20,10 @@
 
 ![Protótipo da Tela Home do Projeto](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/Prototipo.png)
 
+# Protótipo Tela Usuário
+
+![Protótipo da tela usuário](https://github.com/ProjetoPiADS/GameRaters/blob/main/DocsImg/Tela%20User.png)
+
 # Protótipo Tela Catalogo dos jogos
 
 ![Protótipo Tela catalogo Games](https://github.com/ProjetoPiADS/GameRaters/blob/main/DocsImg/Catalog.png)
