@@ -24,6 +24,14 @@
 
 ![Protótipo Tela Jogos](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/TelaJogos.jpg)
 
+# Modelo Conceitual
+
+![Modelagem Conceitual do projeto](https://github.com/ProjetoPiADS/GameRaters/blob/main/DocsImg/Captura%20de%20Tela%20(3).png)
+
+# Modelo Lógico
+
+![Modelagem Lógico do projeto](https://github.com/ProjetoPiADS/GameRaters/blob/main/DocsImg/Captura%20de%20Tela%20(4).png)
+
 # Diagrama de classe
 
 ![Diagrama de classe do projeto](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/Diagrama%20(1).jpg)
