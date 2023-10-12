@@ -20,9 +20,25 @@
 
 ![Protótipo da Tela Home do Projeto](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/Prototipo.png)
 
+# Protótipo Tela Usuário
+
+![Protótipo da tela usuário](https://github.com/ProjetoPiADS/GameRaters/blob/main/DocsImg/Tela%20User.png)
+
+# Protótipo Tela Catalogo dos jogos
+
+![Protótipo Tela catalogo Games](https://github.com/ProjetoPiADS/GameRaters/blob/main/DocsImg/Catalog.png)
+
 # Protótipo Tela Jogos
 
 ![Protótipo Tela Jogos](https://github.com/ProjetoPiADS/ProjetoPi/blob/main/DocsImg/TelaJogos.jpg)
+
+# Modelo Conceitual
+
+![Modelagem Conceitual do projeto](https://github.com/ProjetoPiADS/GameRaters/blob/main/DocsImg/Captura%20de%20Tela%20(3).png)
+
+# Modelo Lógico
+
+![Modelagem Lógico do projeto](https://github.com/ProjetoPiADS/GameRaters/blob/main/DocsImg/Captura%20de%20Tela%20(4).png)
 
 # Diagrama de classe
 
