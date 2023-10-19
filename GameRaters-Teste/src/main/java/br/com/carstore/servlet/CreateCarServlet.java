@@ -29,4 +29,3 @@ public class CreateCarServlet extends HttpServlet {
         response.sendRedirect("/find-all-cars");
     }
 }
-
