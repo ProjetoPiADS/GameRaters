@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const itemsPerPage = 20; // Número de cards por página
-    const currentPage = 1; // Página atual (você pode ajustar isso conforme necessário)
+    const currentPage = 1; // Página atual
 
     fetch('/display-page?page=' + currentPage) // Passa o número da página para a servlet
         .then(response => response.json())
@@ -18,12 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 cardsHTML += `
                     <div class="col-md-3">
-                        <div class="card ">
-                            <img src="${car.imgurl}" class="card-img-top " alt="${car.name}">
-                            <div class="card-body">
-                                <h5 class="card-title deco">${car.name}</h5>
+                        <a href="sua-url-aqui" class="card-link">
+                            <div class="card">
+                                <img src="${car.imgurl}" class="card-img-top" alt="${car.name}">
+                                <div class="card-body">
+                                    <h5 class="card-title deco">${car.name}</h5>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 `;
 

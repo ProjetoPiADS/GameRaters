@@ -167,6 +167,7 @@ body {
 .card{
     border: 1px solid white;
     transition: transform .3s;
+
 }
 .card:hover {
     box-shadow: 20px 20px 10px rgb(0, 0, 0);
