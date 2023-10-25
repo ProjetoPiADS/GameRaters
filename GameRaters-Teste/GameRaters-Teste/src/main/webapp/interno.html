@@ -66,12 +66,11 @@
 <main>
     <div class="Corpo">
         <div class="JGimage">
-            <img src="./img/Logo-Stray.webp" alt="">
-            <p>Stray é um jogo eletrônico de aventura desenvolvido pela BlueTwelve Studio e publicado pela Annapurna Interactive. A história acompanha um gato feral que cai em uma cidade murada subterrânea povoada por robôs,
-                máquinas e bactérias mutantes, tentando retornar à superfície com a ajuda de um drone chamado B-12.
-                A jogabilidade consiste em o jogador navegar pelo mundo ao pular entre plataformas ou escalar obstáculos, interagindo com o ambiente a fim de abrir novos caminhos e hackeando tecnologias para solucionar desafios.
-                O jogador também precisa em certos momentos fugir dos antagonistas que tentam matá-lo.</p>
+            <img src="" alt="" id="card-img">
+            <p id="card-description"></p>
+
         </div>
+
 
         <ul class="avaliacao">
             <li class="star-icon ativo" data-avaliacao="1"></li>
@@ -157,6 +156,19 @@
         </div>
     </footer>
 </main>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const cardImgElement = document.getElementById("card-img");
+        const cardDescriptionElement = document.getElementById("card-description");
 
+        if (urlParams.has("imgurl")) {
+            cardImgElement.src = urlParams.get("imgurl");
+        }
 
+        if (urlParams.has("description")) {
+            cardDescriptionElement.textContent = urlParams.get("description");
+        }
+    });
+</script>
 </body>
