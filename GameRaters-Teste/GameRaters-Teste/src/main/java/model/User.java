@@ -1,4 +1,4 @@
-package br.com.gameraters.model;
+package model;
 
 public class User {
     private String name;

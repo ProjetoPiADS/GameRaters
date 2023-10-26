@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="dao.userDao" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,32 +33,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link text-white font-weight-bold dropdown-toggle" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Jogos
+                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="jogos.html">Jogos</a>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white font-weight-bold" href="#">Comunidade</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="#">News</a>
+                        <a class="nav-link text-white font-weight-bold" href="new.html">News</a>
                     </li>
                 </ul>
 
-                <a class="btn btn-danger" type="submit">Login</a>
+                <a class="btn btn-danger" href="Login.html">Login</a>
 
             </div>
         </div>
@@ -66,16 +57,16 @@
 <main>
     <div class="profile">
         <div class="profile-image" id="profile-image">
-            <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243"  alt="Foto de perfil">
+            <img src="<%= new dao.userDao().showURL().get(1) %>" alt="Foto de perfil">
             <div class="button-profile-image">
                 <input type="file" id="image-upload" accept="image/*" >
                 <label for="image-upload" class="upload-button">Editar foto de perfil</label>
             </div>
         </div>
             <div class="profile-text">
-                    <h1>Gabriel</h1>
-                    <p>100 Seguidores</p>
-                    <p>50 Comentários</p>
+                    <h1><%= new dao.userDao().showUserName().get(0) %></h1>
+                    <p>10 Seguidores</p>
+                    <p>3 Comentários</p>
             </div>
     </div>
         <script src="scriptUsuario.js"></script>
@@ -85,7 +76,7 @@
     <div id="container1">
         <div class="perfil">
             <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <h6>Gabriel</h6>
+            <h6><%= new dao.userDao().showUserName().get(0) %></h6>
 
             <p>Jogo incrível, gameplay dinâmica e história cativante.</p>
 
@@ -95,7 +86,7 @@
     <div id="container2">
         <div class="perfil">
             <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <h6>Gabriel</h6>
+            <h6><%= new dao.userDao().showUserName().get(0) %></h6>
 
             <p>Gostei muito do jogo, não vejo a hora de uma sequência.</p>
 
@@ -105,7 +96,7 @@
     <div id="container3">
         <div class="perfil">
             <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <h6>Gabriel</h6>
+            <h6><%= new dao.userDao().showUserName().get(0) %></h6>
 
             <p>Achei um pouco decepcionante.</p>
 

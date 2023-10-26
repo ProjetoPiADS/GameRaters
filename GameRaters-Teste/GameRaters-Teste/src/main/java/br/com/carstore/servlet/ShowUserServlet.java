@@ -1,7 +1,7 @@
-package br.com.gameraters.servlet;
+package br.com.carstore.servlet;
 
-import br.com.gameraters.dao.userDao;
-import br.com.gameraters.model.User;
+import dao.userDao;
+import model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,8 +17,10 @@ public class ShowUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
-        List<User> users = new userDao().showUserName();
+        List<String> users = new userDao().showUserName();
+        List<String> imgURLs = new userDao().showURL();
 
         req.setAttribute("users", users);
+        req.setAttribute("imgURLs", imgURLs);
     }
 }
