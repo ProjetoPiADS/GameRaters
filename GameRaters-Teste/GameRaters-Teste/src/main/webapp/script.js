@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 itemsToDisplay.forEach(car => {
                     cardsHTML += `
                                     <div class="col-md-3 test1">
-                                        <a href="sua-url-aqui" class="deco">
+                                        <a href="interno.html?id=${car.id}&imgurl=${car.imgurl}&name=${car.name}&description=${car.descricao}" class="deco">
                                             <div class="square-image">
                                                 <img src="${car.imgurl}" alt="${car.name}" class="img-fluid rounded">
                                             </div>
@@ -46,4 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Carregue os primeiros cartões iniciais
     fetchItems();
+
+
+
 });
