@@ -39,9 +39,6 @@
                         <a class="nav-link text-white font-weight-bold active" aria-current="page" href="jogos.jsp">Jogos</a>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="#">Comunidade</a>
-                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link text-white font-weight-bold" href="new.jsp">News</a>
