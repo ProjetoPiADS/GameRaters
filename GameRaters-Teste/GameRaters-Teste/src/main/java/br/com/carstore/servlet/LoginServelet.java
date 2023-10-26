@@ -16,9 +16,9 @@ public class LoginServelet  extends HttpServlet {
         UsuarioDao Usdao = new UsuarioDao();
 
         if(Usdao.verificarCredenciais(Email,senha)){
-            response.sendRedirect("index.html");
+            response.sendRedirect("index.jsp");
 
         }else
-            response.sendRedirect("Login.html");
+            response.sendRedirect("Login.jsp");
     }
 }

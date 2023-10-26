@@ -71,7 +71,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Inserir</h5>
                     <p class="card-text">Clique aqui para inserir um item.</p>
-                    <a href="Inserir.html" class="btn btn-primary">Inserir</a>
+                    <a href="Inserir.jsp" class="btn btn-primary">Inserir</a>
                 </div>
             </div>
         </div>

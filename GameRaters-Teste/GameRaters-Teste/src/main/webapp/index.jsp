@@ -33,22 +33,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="index.jsp">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="jogos.html">Jogos</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="#">Comunidade</a>
+                        <a class="nav-link text-white font-weight-bold" href="jogos.jsp">Jogos</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="#">News</a>
+                        <a class="nav-link text-white font-weight-bold" href="new.jsp">News</a>
                     </li>
                 </ul>
 
-                <a class="btn btn-danger" href="Login.html">Login</a>
+                <a class="btn btn-danger" href="Login.jsp">Login</a>
 
             </div>
         </div>
@@ -58,16 +54,16 @@
     <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active c-item">
-                <a href="sobrenos.php"><img
+                <a href="jogos.jsp"><img
                         src="https://www.ytechb.com/wp-content/uploads/2023/04/gaming-wallpapers-for-desktop-5.webp"
                         class="d-block w-100 c-img" alt="Slide 2"></a>
             </div>
             <div class="carousel-item c-item">
-                <a href="produtos.php"><img src="https://wallpapercave.com/wp/wp4531198.jpg" class="d-block w-100 c-img"
+                <a href="jogos.jsp"><img src="https://wallpapercave.com/wp/wp4531198.jpg" class="d-block w-100 c-img"
                                             alt="Slide 3"></a>
             </div>
             <div class="carousel-item c-item">
-                <a href="#"><img src="https://images2.alphacoders.com/118/1182375.jpg" class="d-block w-100 c-img"
+                <a href="jogos.jsp"><img src="https://images2.alphacoders.com/118/1182375.jpg" class="d-block w-100 c-img"
                                  alt="Slide 3"></a>
             </div>
         </div>
@@ -114,7 +110,7 @@
         <div class="row mt-3 test2">
             <div class="col-md-3">
                 <div class="">
-                    <a href="#">
+                    <a href="jogos.jsp">
                         <button class="cbtn">View All</button>
                     </a>
                 </div>
@@ -176,7 +172,7 @@
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-md-3">
                 <div class="text-center">
-                    <a href="#">
+                    <a href="jogos.jsp">
                         <button class="cbtn">View All</button>
                     </a>
                 </div>
@@ -195,10 +191,10 @@
                 <div class="col-md-4">
                     <h4 style="color: #fff;">Useful Links</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#" style="text-decoration: none; color: #fff;">Home</a></li>
-                        <li><a href="#" style="text-decoration: none; color: #fff;">Products</a></li>
-                        <li><a href="#" style="text-decoration: none; color: #fff;">Services</a></li>
-                        <li><a href="#" style="text-decoration: none; color: #fff;">Contact</a></li>
+                        <li><a href="index.jsp" style="text-decoration: none; color: #fff;">Home</a></li>
+                        <li><a href="jogos.jsp" style="text-decoration: none; color: #fff;">Jogos</a></li>
+                        <li><a href="new.jsp" style="text-decoration: none; color: #fff;">News</a></li>
+
                     </ul>
                 </div>
                 <div class="col-md-4">

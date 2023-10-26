@@ -33,10 +33,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="index.jsp">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="jogos.html">Jogos</a>
+                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="jogos.jsp">Jogos</a>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -44,11 +44,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="new.html">News</a>
+                        <a class="nav-link text-white font-weight-bold" href="new.jsp">News</a>
                     </li>
                 </ul>
 
-                <a class="btn btn-danger" href="Login.html">Login</a>
+                <a class="btn btn-danger" href="Login.jsp">Login</a>
 
             </div>
         </div>
@@ -57,7 +57,7 @@
 <main>
     <div class="profile">
         <div class="profile-image" id="profile-image">
-            <img src="<%= new dao.userDao().showURL().get(1) %>" alt="Foto de perfil">
+            <img src="<%= new dao.userDao().showURL().get(0) %>" alt="Foto de perfil">
             <div class="button-profile-image">
                 <input type="file" id="image-upload" accept="image/*" >
                 <label for="image-upload" class="upload-button">Editar foto de perfil</label>

@@ -22,17 +22,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="index.jsp">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="jogos.html">Jogos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="#">Comunidade</a>
+                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="jogos.jsp">Jogos</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="#">News</a>
+                        <a class="nav-link text-white font-weight-bold" href="new.jsp">News</a>
                     </li>
                 </ul>
 
@@ -60,7 +57,7 @@
             <div class="col-md-4">
                 <h4 style="color: #fff;">Useful Links</h4>
                 <ul class="list-unstyled">
-                    <li><a href="#" style="text-decoration: none; color: #fff;">Home</a></li>
+                    <li><a href="index.jsp" style="text-decoration: none; color: #fff;">Home</a></li>
                     <li><a href="#" style="text-decoration: none; color: #fff;">Products</a></li>
                     <li><a href="#" style="text-decoration: none; color: #fff;">Services</a></li>
                     <li><a href="#" style="text-decoration: none; color: #fff;">Contact</a></li>

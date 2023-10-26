@@ -13,7 +13,7 @@
     <div class="campos">
         <img src="img/logo.png" alt="Imagem" class="imagem-login">
         <h1 class="titulo">Login</h1>
-        <form action="index.html" method="post">
+        <form action="index.jsp" method="post">
             <div class="campo">
                 <label for="usuario">Email:</label>
                 <input type="text" id="usuario" name="Email" class="input-campo">
