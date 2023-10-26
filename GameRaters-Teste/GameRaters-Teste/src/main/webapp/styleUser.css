@@ -1,0 +1,454 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #000, #1C1C1C);
+    color: #fff;
+}
+.container  {
+    width: 100%;
+    height: 100%;
+}
+
+.profile img {
+    height:200px;
+    width: 205px;
+    margin-left: 10px;
+    margin-top: 35px;
+    position: relative;
+    border-radius: 5%;
+    object-fit: cover;
+    border: 2px solid white;
+    float: left;
+}
+
+.profile {
+    background-image: url(https://wallpapers.com/images/featured/minimalist-7xpryajznty61ra3.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 95%;
+    height: 280px;
+    position: relative;
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    border: 2px solid white;
+}
+
+.profile-text {
+    color: white;
+    text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    -1px -1px 0 #000,
+    1px -1px 0 #000;
+    padding-top: 70px;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+p{
+    line-height: 1;
+}
+
+.perfil{
+    padding: 15px;
+    margin-left: 20px;
+    border: 1px solid rgb(128, 128, 128);
+    background-color: #1C1C1C;
+    margin-top: 20px;
+    border-radius: 15px;
+    border: 2px solid white;
+    width: 95%;
+}
+
+.perfil img{
+    width: 50px;
+    border-radius: 5%;
+    object-fit: cover;
+    border: 2px solid white;
+    float: left;
+    height: 50px;
+}
+.perfil h6{
+    width: 15px;
+    padding: 8px 10px;
+    display: inline-block;
+}
+.perfil p{
+    width: 100%;
+    padding-left: 60px;
+
+}
+
+#image-upload {
+    display: none;
+}
+
+.upload-button {
+    display: block;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    margin-top: 238px;
+    border: 1px solid black;
+    margin-left: 10px;
+    text-align: center;
+}
+
+
+.game-image {
+    border: 20px;
+    max-width: 80%;
+    background-color: transparent !important; /* Defina o fundo como transparente para remover o fundo branco */
+    padding: 0; /* Remova qualquer preenchimento */
+    margin: 0; /* Remova qualquer margem */
+    margin-left: 150px;
+}
+
+.square-image {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Define a proporção 1:1 (altura igual à largura) */
+    position: relative;
+}
+
+.square-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém a imagem dentro do espaço */
+}
+
+.text{
+    color: #fff;
+    margin-left: 50px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.c-item {
+    height: 480px;
+}
+
+.c-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.btnLg {
+    margin-left: 20px;
+}
+
+.Obj {
+    width: 150px;
+}
+
+.Obj2 {
+    height: 400px;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.b-example-divider {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.btn-bd-primary {
+    --bd-violet-bg: #712cf9;
+    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--bd-violet-bg);
+    --bs-btn-border-color: var(--bd-violet-bg);
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #6528e0;
+    --bs-btn-hover-border-color: #6528e0;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #5a23c8;
+    --bs-btn-active-border-color: #5a23c8;
+}
+
+.bd-mode-toggle {
+    z-index: 1500;
+}
+
+.ajd {
+
+    width: 150px;
+    height: 150px;
+}
+
+.rover {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    background-image: url("img/Nav2.png");
+    background-size: cover;
+}
+
+.vd {
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+}
+
+.card img {
+    transition: transform .3s;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card{
+    border: 1px solid white;
+    transition: transform .3s;
+}
+.card:hover {
+    box-shadow: 20px 20px 10px rgb(0, 0, 0);
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.comprar-btn {
+    background-color: #000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.card-text {
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+    font-weight: bold;
+}
+
+.btn-up{
+    width: 200px;
+    height: 35px;
+}
+
+.btn-text{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.deco {
+    text-decoration: none;
+}
+
+.btn.btn-text.btn-up.btn-sm.comprar-btn:hover {
+    background-color: #363636;
+    color: #ffffff;
+}
+
+.pd{
+    padding: 15px;
+}
+
+.deta{
+    background-color: #000;
+    color: white;
+}
+
+.btn-secondary.deta.btn-text:hover {
+    background-color: #363636;
+    color: #ffffff;
+}
+
+.zoom-img {
+    position: relative;
+}
+
+.zoom-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.zoom-img:hover::before {
+    opacity: 1;
+}
+
+.zoom-img img {
+    transition: transform 0.3s ease;
+}
+
+.zoom-img:hover img {
+    transform: scale(1.2);
+}
+
+.small-img-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.small-img-group {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.small-img-col {
+    flex: 1;
+    margin-right: 5px;
+}
+
+.small-img {
+    width: 65%;
+    cursor: pointer;
+}
+
+.zoom-img {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    padding-bottom: 100%;
+    cursor: pointer;
+}
+
+.zoom-img img {
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.zoom-img.zoomed img {
+    transform: scale(1.5);
+}
+
+.img{
+    width: 60px;
+    height: 50px;
+}
+
+.btn{
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: #FF0000; /* Vermelho mais claro */
+    border-color: #FF0000; /* Vermelho mais claro */
+}
+
+.navbar-nav .nav-link {
+    font-weight: bold;
+}
+
+
+.test1 img {
+    transition: transform .3s;
+}
+
+.test1:hover img {
+    transform: scale(1.1);
+}
+
+.test1{
+
+    transition: transform .3s;
+}
+.test1:hover {
+
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.test2{
+    margin-left: 600px;
+    justify-content: flex-end;
+}
+
+.cbtn {
+    background-color: #4F4F4F;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px; /* Borda arredondada */
+    font-weight: bold; /* Fonte em negrito */
+}
+
+.cbtn:hover {
+    background-color: #696969; /* Cor de fundo diferente durante o hover */
+    /* Você pode personalizar outros estilos de hover, se desejar */
+}
+
+.bnn{
+    border-radius: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+footer {
+    margin-top: 20px; /* Adicione uma margem superior para ajustar o rodapé */
+    background-color: #1C1C1C;
+    color: #fff;
+}
+
+.tt1{
+    margin-left: 90px;
+}
