@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    <img src="https://www.adrenaline.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=910&height=568&format=webp&quality=91&imagick=/wp-content/uploads/2022/04/Death_Stranding_Banner_PlayStation_Studios.jpg" alt="Minha imagem" class="minha-imagem">
+    <img src="https://www.womendailymagazine.com/wp-content/uploads/2017/10/top-6-video-games-1-1.jpg" alt="Minha imagem" class="minha-imagem">
     <div class="campos">
         <img src="img/logo.png" alt="Imagem" class="imagem-login">
         <h1 class="titulo">Login</h1>

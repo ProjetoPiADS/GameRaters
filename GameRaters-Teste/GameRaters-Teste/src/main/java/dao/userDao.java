@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class userDao {
-    public List<String> showUserName() {
+    public List<User> showUserName() {
         String SQL = "SELECT NOME FROM USUARIO";
 
         try {
@@ -23,14 +23,14 @@ public class userDao {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            List<String> users = new ArrayList<>();
+            List<User> users = new ArrayList<>();
 
             while (resultSet.next()) {
 
                 String userName = resultSet.getString("NOME");
 
-
-                users.add(userName);
+                User user = new User(userName);
+                users.add(user);
 
             }
             System.out.println("success in select NOME, IMG from user");

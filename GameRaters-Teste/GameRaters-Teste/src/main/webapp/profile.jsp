@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="dao.userDao" %>
 <!DOCTYPE html>
 <html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,14 +53,16 @@
 <main>
     <div class="profile">
         <div class="profile-image" id="profile-image">
-            <img src="<%= new dao.userDao().showURL().get(0) %>" alt="Foto de perfil">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrt9pN1mLwwnVRHG2ALMO5xCLqCtzXz0NLbw&usqp=CAU" alt="Foto de perfil">
             <div class="button-profile-image">
                 <input type="file" id="image-upload" accept="image/*" >
                 <label for="image-upload" class="upload-button">Editar foto de perfil</label>
             </div>
         </div>
             <div class="profile-text">
-                    <h1><%= new dao.userDao().showUserName().get(0) %></h1>
+                <c:forEach var="User" items="${users}">
+                    <h1>${User.name}</h1>
+                </c:forEach>
                     <p>10 Seguidores</p>
                     <p>3 Comentários</p>
             </div>
@@ -73,7 +74,9 @@
     <div id="container1">
         <div class="perfil">
             <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <h6><%= new dao.userDao().showUserName().get(0) %></h6>
+            <c:forEach var="User" items="${users}">
+                <h6>${User.name}</h6>
+            </c:forEach>
 
             <p>Jogo incrível, gameplay dinâmica e história cativante.</p>
 
@@ -83,8 +86,9 @@
     <div id="container2">
         <div class="perfil">
             <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <h6><%= new dao.userDao().showUserName().get(0) %></h6>
-
+            <c:forEach var="User" items="${users}">
+            <h6>${User.name}</h6>
+            </c:forEach>
             <p>Gostei muito do jogo, não vejo a hora de uma sequência.</p>
 
         </div>
@@ -93,7 +97,9 @@
     <div id="container3">
         <div class="perfil">
             <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <h6><%= new dao.userDao().showUserName().get(0) %></h6>
+            <c:forEach var="User" items="${users}">
+                <h6>${User.name}</h6>
+            </c:forEach>
 
             <p>Achei um pouco decepcionante.</p>
 

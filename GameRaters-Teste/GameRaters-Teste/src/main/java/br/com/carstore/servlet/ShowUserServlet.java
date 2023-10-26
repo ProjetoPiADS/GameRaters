@@ -17,10 +17,10 @@ public class ShowUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
-        List<String> users = new userDao().showUserName();
-        List<String> imgURLs = new userDao().showURL();
+        List<User> users = new userDao().showUserName();
 
         req.setAttribute("users", users);
-        req.setAttribute("imgURLs", imgURLs);
+
+        req.getRequestDispatcher("profile.jsp").forward(req,resp);
     }
 }
