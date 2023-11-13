@@ -17,6 +17,7 @@
             <th>Name</th>
             <th>Descrição</th>
             <th>Img Url</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -26,6 +27,12 @@
                 <td>${car.name}</td>
                 <td>${car.descricao}</td>
                 <td>${car.imgurl}</td>
+                 <td>
+                     <form action="/delete-car" method="post">
+                       <input type="hidden" id="id" name="id" value="${car.id}">
+                       <button type="submit">Delete</button>
+                    </form>
+                  </td>
             </tr>
         </c:forEach>
         </tbody>
