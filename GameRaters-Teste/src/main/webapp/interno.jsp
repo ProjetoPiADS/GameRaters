@@ -45,20 +45,22 @@
                 </ul>
 
                 <c:if test="${not empty sessionScope.usuario}">
-                    <!-- Usuário logado -->
                     <div class="dropdown">
-                        <button class="btn btn-danger dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Bem-vindo, ${sessionScope.usuario.name} <!-- Substitua 'name' pelo atributo correto do seu objeto Usuario -->
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            Bem-vindo, ${sessionScope.usuario.name}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item" href="profile.jsp">Perfil</a></li>
-                            <li><a class="dropdown-item" href="logout.jsp">Logout</a></li>
-                            <!-- Adicione mais opções se necessário (por exemplo, para usuários administradores) -->
+                            <c:if test="${sessionScope.usuario.email eq 'admin@gmail.com'}">
+                                <li><a class="dropdown-item" href="telaAdm.jsp">Tela Adm</a></li>
+                            </c:if>
+                            <li><a class="dropdown-item" href="logout">Logout</a></li>
                         </ul>
                     </div>
                 </c:if>
                 <c:if test="${empty sessionScope.usuario}">
-                    <!-- Usuário não logado -->
+
                     <a class="btn btn-danger" href="Login.jsp">Login</a>
                 </c:if>
 
@@ -103,7 +105,7 @@
             <label for="Comentario">Deixe seu comentário</label>
             <textarea class="form-control Comments" name="Comentario" id="Comentario" rows="4" required></textarea>
             <br>
-            <button class="Comentar">ENVIAR</button>
+            <button class="Comentar" onclick="adicionarComentario()">ENVIAR</button>
         </div>
         <div id="container1">
             <h1>Comentarios</h1>
@@ -173,5 +175,31 @@
             cardDescriptionElement.textContent = urlParams.get("description");
         }
     });
+</script>
+
+<script>
+    function adicionarComentario() {
+        var comentario = document.getElementById("Comentario").value;
+
+        // Adicione aqui o código para obter o ID do usuário e do jogo, se necessário
+
+        // Faça uma requisição AJAX para o servidor
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/AdicionarComentarioServlet", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Atualize a página ou faça qualquer outra manipulação necessária
+                exibirComentarios(JSON.parse(xhr.responseText));
+            }
+        };
+        xhr.send("comentario=" + comentario);
+    }
+
+    function exibirComentarios(comentarios) {
+        // Adicione aqui o código para exibir os comentários na página
+        // Você pode usar manipulação DOM ou uma biblioteca como jQuery para isso
+        console.log(comentarios);
+    }
 </script>
 </body>
