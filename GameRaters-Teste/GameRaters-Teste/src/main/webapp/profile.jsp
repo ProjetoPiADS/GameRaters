@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -34,17 +36,31 @@
                     <li class="nav-item">
                         <a class="nav-link text-white font-weight-bold active" aria-current="page" href="index.jsp">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="jogos.jsp">Jogos</a>
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link text-white font-weight-bold" href="jogos.jsp">Jogos</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link text-white font-weight-bold" href="new.jsp">News</a>
                     </li>
                 </ul>
 
-                <a class="btn btn-danger" href="Login.jsp">Login</a>
+                <c:if test="${not empty sessionScope.usuario}">
+                    <!-- Usuário logado -->
+                    <div class="dropdown">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bem-vindo, ${sessionScope.usuario.name} <!-- Substitua 'name' pelo atributo correto do seu objeto Usuario -->
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="profile.jsp">Perfil</a></li>
+                            <li><a class="dropdown-item" href="logout.jsp">Logout</a></li>
+                            <!-- Adicione mais opções se necessário (por exemplo, para usuários administradores) -->
+                        </ul>
+                    </div>
+                </c:if>
+                <c:if test="${empty sessionScope.usuario}">
+                    <!-- Usuário não logado -->
+                    <a class="btn btn-danger" href="Login.jsp">Login</a>
+                </c:if>
 
             </div>
         </div>

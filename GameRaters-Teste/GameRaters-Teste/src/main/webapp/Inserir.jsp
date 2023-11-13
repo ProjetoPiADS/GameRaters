@@ -42,13 +42,13 @@
 </div>
 
 <script>
-    // Adicione um ouvinte de evento para o envio do formulário
+
     document.getElementById("registration-form").addEventListener("submit", function(event) {
-        // Verifique se algum campo está vazio antes de permitir o envio
+
         if (!document.getElementById("car-name").value ||
             !document.getElementById("car-description").value ||
             !document.getElementById("car-imgurl").value) {
-            // Impede o envio do formulário se algum campo estiver vazio
+
             event.preventDefault();
             alert("Por favor, preencha todos os campos antes de registrar.");
         }

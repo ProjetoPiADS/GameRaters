@@ -15,6 +15,10 @@ public class Usuario {
         this.Senha = senha;
     }
 
+    public Usuario() {
+
+    }
+
     public int getId() {
         return Id;
     }

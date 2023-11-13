@@ -13,21 +13,29 @@
     <div class="campos">
         <img src="img/logo.png" alt="Imagem" class="imagem-login">
         <h1 class="titulo">Login</h1>
-        <form action="index.jsp" method="post">
+        <form action="LoginServelet" method="post"> <!-- Atualizado o action para chamar o servlet -->
             <div class="campo">
                 <label for="usuario">Email:</label>
-                <input type="text" id="usuario" name="Email" class="input-campo">
+                <input type="text" id="usuario" name="email" class="input-campo">
             </div>
             <div class="espaco"></div>
             <div class="campo">
                 <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="password" class="input-campo">
+                <input type="password" id="senha" name="senha" class="input-campo">
             </div>
 
-            <button class="botao" type="submit">Enviar</button>
+            <button type="submit" class="botao">Enviar</button>
         </form>
-        <p>Não tem uma conta? <a href="./Cadastro/Cadastro.html" id="criar-conta">Crie uma aqui</a>.</p>
+        <p>Não tem uma conta? <a href="Cadastro/Cadastro.jsp" id="criar-conta">Crie uma aqui</a>.</p>
     </div>
 </div>
+
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var erroParam = urlParams.get('erro');
+    if (erroParam === '1') {
+        alert("Login falhou. Verifique seu email e senha.");
+    }
+</script>
 </body>
 </html>
