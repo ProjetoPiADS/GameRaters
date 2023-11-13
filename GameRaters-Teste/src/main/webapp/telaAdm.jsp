@@ -32,32 +32,38 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-white font-weight-bold dropdown-toggle" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Jogos
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                        <a class="nav-link text-white font-weight-bold active" aria-current="page" href="index.jsp">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="#">Comunidade</a>
+                        <a class="nav-link text-white font-weight-bold" href="jogos.jsp">Jogos</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link text-white font-weight-bold" href="#">News</a>
+                        <a class="nav-link text-white font-weight-bold" href="new.jsp">News</a>
                     </li>
                 </ul>
 
-                <a class="btn btn-danger" type="submit">Login</a>
+                <c:if test="${not empty sessionScope.usuario}">
+                    <!-- Usuário logado -->
+                    <div class="dropdown">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            Bem-vindo, ${sessionScope.usuario.name} <!-- Substitua 'name' pelo atributo correto do seu objeto Usuario -->
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="profile.jsp">Perfil</a></li>
+                            <!-- Adiciona a opção "Tela Adm" apenas para o usuário com email "admin@gmail.com" -->
+                            <c:if test="${sessionScope.usuario.email eq 'admin@gmail.com'}">
+                                <li><a class="dropdown-item" href="telaAdm.jsp">Tela Adm</a></li>
+                            </c:if>
+                            <li><a class="dropdown-item" href="logout.jsp">Logout</a></li>
+                            <!-- Adicione mais opções se necessário (por exemplo, para usuários administradores) -->
+                        </ul>
+                    </div>
+                </c:if>
+                <c:if test="${empty sessionScope.usuario}">
+                    <!-- Usuário não logado -->
+                    <a class="btn btn-danger" href="Login.jsp">Login</a>
+                </c:if>
 
             </div>
         </div>

@@ -47,12 +47,17 @@
                 <c:if test="${not empty sessionScope.usuario}">
                     <!-- Usuário logado -->
                     <div class="dropdown">
-                        <button class="btn btn-danger dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                             Bem-vindo, ${sessionScope.usuario.name} <!-- Substitua 'name' pelo atributo correto do seu objeto Usuario -->
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item" href="profile.jsp">Perfil</a></li>
-                            <li><a class="dropdown-item" href="logout.jsp">Logout</a></li>
+                            <!-- Adiciona a opção "Tela Adm" apenas para o usuário com email "admin@gmail.com" -->
+                            <c:if test="${sessionScope.usuario.email eq 'admin@gmail.com'}">
+                                <li><a class="dropdown-item" href="telaAdm.jsp">Tela Adm</a></li>
+                            </c:if>
+                            <li><a class="dropdown-item" href="logout">Logout</a></li>
                             <!-- Adicione mais opções se necessário (por exemplo, para usuários administradores) -->
                         </ul>
                     </div>
