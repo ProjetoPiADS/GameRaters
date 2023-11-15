@@ -31,6 +31,8 @@
                      <form action="/delete-car" method="post">
                        <input type="hidden" id="id" name="id" value="${car.id}">
                        <button type="submit">Delete</button>
+                       <span> | </span>
+                       <a href="Inserir.jsp?id=${car.id}&imgurl=${car.imgurl}&name=${car.name}&description=${car.descricao}">Update</a>
                     </form>
                   </td>
             </tr>

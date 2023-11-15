@@ -19,27 +19,23 @@ public class CreateCarServlet extends HttpServlet {
         String carImgUrl = request.getParameter("car-imgurl");
         String carId = request.getParameter("id");
 
-
-
         Car car = new Car(carName);
         car.setDescricao(carDescription);
         car.setImgurl(carImgUrl);
 
         CarDao carDao = new CarDao();
 
-        carDao.createCar(car);
-
-
-        new CarDao().createCar(car);
-
-        if (carId.isBlank()) {
-
-            carDao.createCar(car);
-
-        } else {
-
+        if (carId != null && !carId.isBlank()) {
+            // If carId is not null or blank, it means it's an update
+            car.setId((int) Long.parseLong(carId)); // Assuming the id is a Long
             carDao.updateCar(car);
+        } else {
+            // If carId is null or blank, it's a new car
+            carDao.createCar(car);
         }
+
         response.sendRedirect("/find-all-cars");
     }
+
+
 }

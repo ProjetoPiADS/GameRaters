@@ -23,17 +23,17 @@
 
             <div class="form-group">
                 <label for="car-name">Jogos Nome</label>
-                <input type="text" class="form-control" name="car-name" id="car-name" required>
+                <input type="text" class="form-control" name="car-name" id="car-name" value="${param.name}" required>
             </div>
 
-            <div class="form-group">
-                <label for="car-description">Descrição jogos</label>
-                <input type="text" class="form-control" name="car-description" id="car-description">
-            </div>
+           <div class="form-group">
+               <label for="car-description">Descrição do Jogo</label>
+               <input type="text" class="form-control" name="car-description" id="car-description" oninput="exibirDescricao(this.value)" value="${param.description}">
+           </div>
 
             <div class="form-group">
                 <label for="car-imgurl">Jogos img urL</label>
-                <input type="text" class="form-control" name="car-imgurl" id="car-imgurl">
+                <input type="text" class="form-control" name="car-imgurl" id="car-imgurl" value="${param.imgurl}">
             </div>
 
             <div class="text-center">
