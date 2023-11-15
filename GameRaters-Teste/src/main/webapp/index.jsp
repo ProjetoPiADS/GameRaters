@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.net.URLEncoder" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,6 +16,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
             crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!--===============================================================================================-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -93,40 +95,9 @@
     <br>
     <h2 class="text">Top Games Rattings</h2>
 
-    <div class="row game-image ">
-        <div class="col-md-3 test1">
-            <a href="pagina1.html" class="deco">
-                <div class="square-image">
-                    <img src="https://images2.alphacoders.com/118/1182375.jpg" alt="Game 1" class="img-fluid rounded">
-                </div>
-                <p class="text"><i class="fas fa-fire"></i> 800 Followers</p>
-            </a>
-        </div>
-        <div class="col-md-3 test1">
-            <a href="pagina2.html" class="deco">
-                <div class="square-image">
-                    <img src="https://images2.alphacoders.com/118/1182375.jpg" alt="Game 2" class="img-fluid rounded">
-                </div>
-                <p class="text"><i class="fas fa-fire"></i> 800 Followers</p>
-            </a>
-        </div>
-        <div class="col-md-3 test1">
-            <a href="pagina3.html" class="deco">
-                <div class="square-image">
-                    <img src="https://images2.alphacoders.com/118/1182375.jpg" alt="Game 3" class="img-fluid rounded">
-                </div>
-                <p class="text"><i class="fas fa-fire"></i> 800 Followers</p>
-            </a>
-        </div>
-        <div class="col-md-3 test1">
-            <a href="pagina4.html" class="deco">
-                <div class="square-image">
-                    <img src="https://images2.alphacoders.com/118/1182375.jpg" alt="Game 4" class="img-fluid rounded">
-                </div>
-                <p class="text"><i class="fas fa-fire"></i> 800 Followers</p>
-            </a>
-        </div>
-    </div>
+    <div class="row game-image" id="carDisplay1"></div>
+
+
 
     <div class="container">
         <div class="row mt-3 test2">
@@ -142,54 +113,17 @@
     <div style="margin-top: 20px;"></div>
     <div class="container text-center  test1">
         <div class="w-75 mx-auto">
-            <!-- Banner -->
-            <a href="pagina-de-destino.html">
+
+            <a href="jogos.jsp">
                 <img src="https://wallpapercave.com/wp/wp4531198.jpg" alt="Banner" class="img-fluid bnn">
             </a>
         </div>
     </div>
     <h2 class="text-center" style="color: #fff;">Fav Games</h2>
-    <div class="row game-image ">
-        <div class="col-md-3 test1">
-            <a href="pagina1.html" class="deco">
-                <div class="square-image">
-                    <div class="img-container">
-                        <img src="https://pbs.twimg.com/media/F100zEyXwAAszNz.png" alt="Game 1" class="img-fluid rounded">
-                    </div>
-                </div>
-                <p class="text">Counter Strike 2</p>
-            </a>
-        </div>
-        <div class="col-md-3 test1">
-            <a href="pagina2.html" class="deco">
-                <div class="square-image">
-                    <img src="https://seeklogo.com/images/V/valorant-logo-FAB2CA0E55-seeklogo.com.png" alt="Game 2"
-                         class="img-fluid rounded">
-                </div>
-                <p class="text tt1">Valorant</p>
-            </a>
-        </div>
-        <div class="col-md-3 test1">
-            <a href="pagina3.html" class="deco">
-                <div class="square-image">
-                    <img
-                            src="https://www.adrenaline.com.br/wp-content/plugins/seox-image-magick/imagick_convert.php?width=500&height=500&format=webp&quality=91&imagick=uploads.adrenaline.com.br/2023/05/mk1.jpg"
-                            alt="Game 3" class="img-fluid rounded">
-                </div>
-                <p class="text">Mortal Kombat 1</p>
-            </a>
-        </div>
-        <div class="col-md-3 test1">
-            <a href="pagina4.html" class="deco">
-                <div class="square-image">
-                    <img
-                            src="https://upload.wikimedia.org/wikipedia/pt/thumb/7/78/Spider-Man_jogo_2018_capa.png/270px-Spider-Man_jogo_2018_capa.png"
-                            alt="Game 4" class="img-fluid rounded">
-                </div>
-                <p class="text tt1">Spider Man</p>
-            </a>
-        </div>
-    </div>
+    <div class="row game-image" id="carDisplay2"></div>
+
+
+
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-md-3">
@@ -201,7 +135,7 @@
             </div>
         </div>
     </div>
-    </div>
+
     <footer class="text-light py-3" style="background-color: #1C1C1C;">
         <div class="container">
             <div class="row">
@@ -232,7 +166,53 @@
     </footer>
 
 </main>
+<script>
+    function getCars() {
+        fetch('/display-page') // Substitua pela URL correta da sua servlet
+            .then(response => response.json())
+            .then(data => {
+                displayCars(data, 'carDisplay1'); // primeira div
+                displayCars(data, 'carDisplay2'); // segunda div
+            })
+            .catch(error => console.error('Erro ao obter os carros:', error));
+    }
 
+    function displayCars(cars, containerId) {
+        var carDisplay = document.getElementById(containerId);
+
+        cars.slice(0, 4).forEach(function(car) {
+            var colDiv = document.createElement('div');
+            colDiv.className = 'col-md-3 test1';
+
+            var aTag = document.createElement('a');
+            aTag.href = 'interno.jsp?id=' + encodeURIComponent(car.id) +
+                '&imgurl=' + encodeURIComponent(car.imgurl) +
+                '&name=' + encodeURIComponent(car.name) +
+                '&description=' + encodeURIComponent(car.descricao);
+            aTag.className = 'deco';
+
+            var squareImageDiv = document.createElement('div');
+            squareImageDiv.className = 'square-image';
+
+            var img = document.createElement('img');
+            img.src = car.imgurl;
+            img.alt = car.name;
+            img.className = 'img-fluid rounded';
+
+            var pTag = document.createElement('p');
+            pTag.className = 'text tt1';
+            pTag.innerHTML = '<strong>' + car.name + '</strong>';
+
+            squareImageDiv.appendChild(img);
+            aTag.appendChild(squareImageDiv);
+            aTag.appendChild(pTag);
+            colDiv.appendChild(aTag);
+            carDisplay.appendChild(colDiv);
+        });
+    }
+
+    getCars();
+</script>
 <script>
     // Ativar o carrossel automático
     $(document).ready(function () {
@@ -240,6 +220,7 @@
             interval: 3000 // Tempo em milissegundos
         });
     });
+
 </script>
 </body>
 

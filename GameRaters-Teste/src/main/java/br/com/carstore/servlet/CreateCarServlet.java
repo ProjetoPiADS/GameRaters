@@ -17,6 +17,9 @@ public class CreateCarServlet extends HttpServlet {
         String carName = request.getParameter("car-name");
         String carDescription = request.getParameter("car-description");
         String carImgUrl = request.getParameter("car-imgurl");
+        String carId = request.getParameter("id");
+
+
 
         Car car = new Car(carName);
         car.setDescricao(carDescription);
@@ -26,6 +29,17 @@ public class CreateCarServlet extends HttpServlet {
 
         carDao.createCar(car);
 
+
+        new CarDao().createCar(car);
+
+        if (carId.isBlank()) {
+
+            carDao.createCar(car);
+
+        } else {
+
+            carDao.updateCar(car);
+        }
         response.sendRedirect("/find-all-cars");
     }
 }
