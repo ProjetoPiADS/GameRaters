@@ -81,8 +81,8 @@
             </div>
         </div>
             <div class="profile-text">
-                <c:forEach var="User" items="${users}">
-                    <h1>${User.name}</h1>
+                <c:forEach var="Usuario" items="${users}">
+                    <h1>${Usuario.name}</h1>
                 </c:forEach>
                     <p>10 Seguidores</p>
                     <p>3 Comentários</p>

@@ -1,6 +1,9 @@
 package dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import model.Usuario;
 
@@ -56,5 +59,44 @@ public class UsuarioDao {
         }
 
         return null;
+    }
+
+    public List<Usuario> showUserName() {
+        String SQL = "SELECT NOME FROM USUARIO";
+
+        try {
+
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            System.out.println("success in database connection");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<Usuario> users = new ArrayList<>();
+
+            while (resultSet.next()) {
+
+                String userName = resultSet.getString("NOME");
+
+                Usuario user = new Usuario(0,userName, null, null, null);
+                users.add(user);
+
+            }
+            System.out.println("success in select NOME, IMG from user");
+
+            connection.close();
+
+            return users;
+
+        } catch (Exception e) {
+
+            System.out.println("fail in database connection");
+
+            return Collections.emptyList();
+
+        }
+
     }
 }
