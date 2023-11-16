@@ -1,12 +1,13 @@
 package model;
 
 public class Coment {
-    private int id;
-
+    private int idComentario;
+    private String id;
     private String conteudo;
 
-    public Coment(int idComentario, String conteudo) {
-        this.id = idComentario;
+    public Coment(int idComentario, String id, String conteudo) {
+        this.idComentario = idComentario;
+        this.id = id;
         this.conteudo = conteudo;
     }
 
@@ -14,12 +15,14 @@ public class Coment {
 
     }
 
+
+
     public int getIdComentario() {
-        return id;
+        return idComentario;
     }
 
     public void setIdComentario(int idComentario) {
-        this.id = idComentario;
+        this.idComentario = idComentario;
     }
 
     public String getConteudo() {
@@ -30,5 +33,11 @@ public class Coment {
         this.conteudo = conteudo;
     }
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 }

@@ -33,7 +33,9 @@ public class ComentarioServlet extends HttpServlet {
 
             // Move this line inside the try block if needed
             String comentario = request.getParameter("comentario");
-            System.out.println("Comentario: " + comentario);
+
+
+            System.out.println("comentario: " + comentario );
         } catch (Exception e) {
             // Trate exceções de maneira apropriada, por exemplo, registre ou envie para uma página de erro
             e.printStackTrace();
