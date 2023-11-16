@@ -12,7 +12,8 @@ CREATE TABLE usuario (
     nome VARCHAR(255) NOT NULL,
     nick VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    senha VARCHAR(255) NOT NULL
+    senha VARCHAR(255) NOT NULL,
+    url varchar(255) 
 );
 
 create table opinioes(
