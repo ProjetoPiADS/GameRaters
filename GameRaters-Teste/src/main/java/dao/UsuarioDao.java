@@ -62,7 +62,7 @@ public class UsuarioDao {
     }
 
     public List<Usuario> showUserName() {
-        String SQL = "SELECT NOME FROM USUARIO";
+        String SQL = "SELECT ID, NICK, URL FROM USUARIO";
 
         try {
 
@@ -78,13 +78,15 @@ public class UsuarioDao {
 
             while (resultSet.next()) {
 
-                String userName = resultSet.getString("NOME");
+                String userName = resultSet.getString("NICK");
+                String userImg = resultSet.getString("URL");
+                int id = resultSet.getInt("ID");
 
-                Usuario user = new Usuario(0,userName, null, null, null);
+                Usuario user = new Usuario(id,userName, null, userName, null, userImg);
                 users.add(user);
-
             }
-            System.out.println("success in select NOME, IMG from user");
+            System.out.println("success in select NICK, URL from user");
+
 
             connection.close();
 
@@ -99,4 +101,35 @@ public class UsuarioDao {
         }
 
     }
-}
+
+    public void updateProfile(Usuario user){
+        String SQL = "UPDATE USUARIO SET URL = ? WHERE ID = ?";
+
+        try {
+
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+
+            System.out.println("success in database connection");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            preparedStatement.setString(1, user.getUrl());
+            preparedStatement.setInt(2, user.getId());
+            preparedStatement.execute();
+
+            System.out.println("success in update picture");
+
+            connection.close();
+
+        } catch (Exception e) {
+
+            System.out.println("fail in database connection");
+            System.out.println("Error: " + e.getMessage());
+
+        }
+
+    }
+
+
+
+    }

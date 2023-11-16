@@ -84,16 +84,8 @@ p{
     display: none;
 }
 
-.upload-button {
-    display: block;
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-    margin-top: 238px;
-    border: 1px solid black;
-    margin-left: 10px;
-    text-align: center;
+#controls-container {
+    display: none; /* Inicia oculto */
 }
 
 

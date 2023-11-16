@@ -74,31 +74,49 @@
 <main>
     <div class="profile">
         <div class="profile-image" id="profile-image">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrt9pN1mLwwnVRHG2ALMO5xCLqCtzXz0NLbw&usqp=CAU" alt="Foto de perfil">
-            <div class="button-profile-image">
-                <input type="file" id="image-upload" accept="image/*" >
-                <label for="image-upload" class="upload-button">Editar foto de perfil</label>
-            </div>
+        <c:forEach var="user" items="${users}">
+                <c:if test="${user.id eq sessionScope.usuario.id}">
+                                <img src="${user.url}" alt="Foto de perfil">
+                </c:if>
+        </c:forEach>
         </div>
             <div class="profile-text">
-                <c:forEach var="Usuario" items="${users}">
-                    <h1>${Usuario.name}</h1>
-                </c:forEach>
-                    <p>10 Seguidores</p>
+                    <h1>${sessionScope.usuario.nick}</h1>
                     <p>3 Comentários</p>
+                    <button type="button" id="mostrar-esconder" onclick="toggleVisibility()">Alterar foto de perfil</button>
+                    <script>
+                    function toggleVisibility() {
+                        var container = document.getElementById("controls-container");
+                        if (container.style.display === "none") {
+                            container.style.display = "block";
+                        } else {
+                            container.style.display = "none";
+                        }
+                    }
+                    </script>
+                    <div class="profile-controls" id="controls-container">
+                        <form action="/show-user-name" method="post">
+                            <label for="url-imagem">Insira a URL da imagem:</label>
+                            <input type="text" name="url" id="url" value="${usuario.url}" />
+                            <input type="hidden" id="id" name="id" value="${usuario.id}">
+                            <button type="submit">Confirmar</button>
+                        </form>
+                    </div>
             </div>
+
     </div>
-        <script src="scriptUsuario.js"></script>
+
     <br>
     <h2 class="text">Comentários</h2>
 
     <div id="container1">
         <div class="perfil">
-            <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <c:forEach var="User" items="${users}">
-                <h6>${User.name}</h6>
-            </c:forEach>
-
+            <c:forEach var="user" items="${users}">
+                            <c:if test="${user.nick eq sessionScope.usuario.nick}">
+                                            <img src="${user.url}" alt="Foto de perfil">
+                            </c:if>
+                    </c:forEach>
+                <h6>${sessionScope.usuario.nick}</h6>
             <p>Jogo incrível, gameplay dinâmica e história cativante.</p>
 
         </div>
@@ -106,10 +124,12 @@
 
     <div id="container2">
         <div class="perfil">
-            <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <c:forEach var="User" items="${users}">
-            <h6>${User.name}</h6>
-            </c:forEach>
+            <c:forEach var="user" items="${users}">
+                            <c:if test="${user.nick eq sessionScope.usuario.nick}">
+                                            <img src="${user.url}" alt="Foto de perfil">
+                            </c:if>
+                    </c:forEach>
+            <h6>${sessionScope.usuario.nick}</h6>
             <p>Gostei muito do jogo, não vejo a hora de uma sequência.</p>
 
         </div>
@@ -117,10 +137,12 @@
 
     <div id="container3">
         <div class="perfil">
-            <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <c:forEach var="User" items="${users}">
-                <h6>${User.name}</h6>
-            </c:forEach>
+            <c:forEach var="user" items="${users}">
+                            <c:if test="${user.nick eq sessionScope.usuario.nick}">
+                                            <img src="${user.url}" alt="Foto de perfil">
+                            </c:if>
+                    </c:forEach>
+            <h6>${sessionScope.usuario.nick}</h6>
 
             <p>Achei um pouco decepcionante.</p>
 
