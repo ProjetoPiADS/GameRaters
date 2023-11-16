@@ -1,59 +1,41 @@
 package dao;
 
+
 import model.Coment;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 public class ComentarioDao {
 
-    private Connection connection;
+    public void adicionarComentario(Coment coment) {
 
-    public ComentarioDao() {
+        String SQL = "INSERT INTO COMENTARIO (CONTEUDO) VALUES (?)";
+
         try {
-            connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public boolean adicionarComentario(Coment comentario) {
-        String sql = "INSERT INTO comentarios (usuario, car, comentario) VALUES (?, ?, ?)";
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, comentario.getUsuario());
-            preparedStatement.setInt(2, comentario.getCar());
-            preparedStatement.setString(3, comentario.getComentario());
-            return preparedStatement.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
-    public List<Coment> obterComentariosPorCar(int idCar) {
-        List<Coment> comentarios = new ArrayList<>();
-        String sql = "SELECT * FROM comentarios WHERE id_car = ?";
+            System.out.println("Success in database connection");
 
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, idCar);
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            try (var resultSet = preparedStatement.executeQuery()) {
-                while (resultSet.next()) {
-                    int idComentario = resultSet.getInt("id");
-                    int idUsuario = resultSet.getInt("id_usuario");
-                    String conteudo = resultSet.getString("conteudo");
+            // Obtenha os valores dos novos campos do objeto Car
+            preparedStatement.setString(1, coment.getConteudo());
 
-                    Coment comentario = new Coment(idComentario, idUsuario, idCar, conteudo);
-                    comentarios.add(comentario);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            preparedStatement.execute();
+
+            System.out.println("Success in insert comentario");
+
+            connection.close();
+
+        } catch (Exception e) {
+
+            System.out.println("Fail in database connection");
+
         }
 
-        return comentarios;
     }
+
 }

@@ -76,37 +76,15 @@
 
         </div>
 
-
-        <ul class="avaliacao">
-            <li class="star-icon ativo" data-avaliacao="1"></li>
-            <li class="star-icon" data-avaliacao="2"></li>
-            <li class="star-icon" data-avaliacao="3"></li>
-            <li class="star-icon" data-avaliacao="4"></li>
-            <li class="star-icon" data-avaliacao="5"></li>
-        </ul>
-
-
-        <script>
-            var stars = document.querySelectorAll('.star-icon');
-
-            document.addEventListener('click', function(e){
-                var classStar = e.target.classList;
-                if(!classStar.contains('ativo')){
-                    stars.forEach(function(star){
-                        star.classList.remove('ativo');
-                    });
-                    classStar.add('ativo');
-                    console.log(e.target.getAttribute('data-avaliacao'));
-                }
-            });
-        </script>
-
-        <div class = "p-5">
-            <label for="Comentario">Deixe seu comentário</label>
-            <textarea class="form-control Comments" name="Comentario" id="Comentario" rows="4" required></textarea>
+        <div class="p-5">
+            <form action="/comentServlet" method="post">
+            <label for="comentario">Deixe seu comentário</label>
+                <input type="text" class="form-control Comments" name="comentario" id="comentario" required>
             <br>
-            <button class="Comentar" onclick="adicionarComentario()">ENVIAR</button>
+            <button type="submit" class="Comentar" >ENVIAR</button>
+            </form>
         </div>
+
         <div id="container1">
             <h1>Comentarios</h1>
             <div class="perfil">
@@ -177,29 +155,5 @@
     });
 </script>
 
-<script>
-    function adicionarComentario() {
-        var comentario = document.getElementById("Comentario").value;
 
-        // Adicione aqui o código para obter o ID do usuário e do jogo, se necessário
-
-        // Faça uma requisição AJAX para o servidor
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/AdicionarComentarioServlet", true);
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // Atualize a página ou faça qualquer outra manipulação necessária
-                exibirComentarios(JSON.parse(xhr.responseText));
-            }
-        };
-        xhr.send("comentario=" + comentario);
-    }
-
-    function exibirComentarios(comentarios) {
-        // Adicione aqui o código para exibir os comentários na página
-        // Você pode usar manipulação DOM ou uma biblioteca como jQuery para isso
-        console.log(comentarios);
-    }
-</script>
 </body>
