@@ -52,7 +52,7 @@
                             Bem-vindo, ${sessionScope.usuario.name} <!-- Substitua 'name' pelo atributo correto do seu objeto Usuario -->
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="profile.jsp">Perfil</a></li>
+                            <li><a class="dropdown-item" href="/show-user-name">Perfil</a></li>
                             <!-- Adiciona a opção "Tela Adm" apenas para o usuário com email "admin@gmail.com" -->
                             <c:if test="${sessionScope.usuario.email eq 'admin@gmail.com'}">
                                 <li><a class="dropdown-item" href="telaAdm.jsp">Tela Adm</a></li>

@@ -20,12 +20,13 @@ public class UsuarioDao {
     }
 
     public boolean inserirUsuario(Usuario usuario) {
-        String sql = "INSERT INTO usuario (nome, email, nick, senha) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario (nome, email, nick, senha, url) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, usuario.getName());
             preparedStatement.setString(2, usuario.getEmail());
             preparedStatement.setString(3, usuario.getNick());
             preparedStatement.setString(4, usuario.getSenha());
+            preparedStatement.setString(5,"https://www.promoview.com.br/uploads/2017/04/b72a1cfe.png");
             return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
