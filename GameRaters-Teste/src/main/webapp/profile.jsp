@@ -7,8 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <!--===============================================================================================-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!--===============================================================================================-->
@@ -16,8 +14,8 @@
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
             crossorigin="anonymous"></script>
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="styleUser.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="styleUser.css">
+
     <title>GameRaters</title>
 </head>
 <body>
@@ -95,12 +93,31 @@
                     }
                     </script>
                     <div class="profile-controls" id="controls-container">
-                        <form action="/show-user-name" method="post">
+                        <form id="profile-form" action="/show-user-name" method="post" onsubmit="return validateForm()">
                             <label for="url-imagem">Insira a URL da imagem:</label>
                             <input type="text" name="url" id="url" value="${usuario.url}" />
                             <input type="hidden" id="id" name="id" value="${usuario.id}">
                             <button type="submit">Confirmar</button>
                         </form>
+
+                        <script>
+                                function validateForm() {
+                                    // Obter o valor da URL
+                                    var urlInput = document.getElementById("url").value;
+
+                                    // Expressão regular para validar a URL começando com "https://"
+                                    var urlPattern = /^https:\/\//;
+
+                                    // Verificar se a URL atende ao padrão
+                                    if (!urlPattern.test(urlInput)) {
+                                        alert("Por favor, insira uma URL que comece com 'https://'.");
+                                        return false; // Impedir o envio do formulário se a validação falhar
+                                    }
+
+                                    // Se a validação for bem-sucedida, permitir o envio do formulário
+                                    return true;
+                                }
+                            </script>
                     </div>
             </div>
 
