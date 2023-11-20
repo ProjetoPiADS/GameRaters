@@ -17,7 +17,7 @@ public class CreateCarServlet extends HttpServlet {
         String carName = request.getParameter("car-name");
         String carDescription = request.getParameter("car-description");
         String carImgUrl = request.getParameter("car-imgurl");
-        String carId = request.getParameter("id");
+        String carId = request.getParameter("car-id");
 
         Car car = new Car(carName);
         car.setDescricao(carDescription);
@@ -26,11 +26,11 @@ public class CreateCarServlet extends HttpServlet {
         CarDao carDao = new CarDao();
 
         if (carId != null && !carId.isBlank()) {
-            // If carId is not null or blank, it means it's an update
-            car.setId((int) Long.parseLong(carId)); // Assuming the id is a Long
+
+            car.setId((int) Long.parseLong(carId));
             carDao.updateCar(car);
         } else {
-            // If carId is null or blank, it's a new car
+
             carDao.createCar(car);
         }
 

@@ -30,9 +30,9 @@
                  <td>
                      <form action="/delete-car" method="post">
                        <input type="hidden" id="id" name="id" value="${car.id}">
-                       <button type="submit">Delete</button>
+                         <button type="submit" class="btn btn-danger">Delete</button>
                        <span> | </span>
-                       <a href="Inserir.jsp?id=${car.id}&imgurl=${car.imgurl}&name=${car.name}&description=${car.descricao}">Update</a>
+                         <a href="Inserir.jsp?id=${car.id}&imgurl=${car.imgurl}&name=${car.name}&description=${car.descricao}" class="btn btn-primary">Update</a>
                     </form>
                   </td>
             </tr>

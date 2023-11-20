@@ -113,21 +113,22 @@ public class CarDao {
 
     public void updateCar(Car car) {
 
-        String SQL = "UPDATE CAR SET NAME = ? WHERE ID = ?";
+        String SQL = "UPDATE CAR SET NAME = ?, DESCRICAO = ?, IMGURL = ? WHERE ID = ?";
 
         try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
             System.out.println("success in database connection");
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             preparedStatement.setString(1, car.getName());
-            preparedStatement.setInt(2, car.getId());
-            preparedStatement.setString(3, car.getDescricao());
-            preparedStatement.setString(4, car.getImgurl());
-            preparedStatement.execute();
+            preparedStatement.setString(2, car.getDescricao());
+            preparedStatement.setString(3, car.getImgurl());
+            preparedStatement.setInt(4, car.getId());
+
+            preparedStatement.executeUpdate(); // Use executeUpdate() para atualizações
 
             System.out.println("success in update car");
 
