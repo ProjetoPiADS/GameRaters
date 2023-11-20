@@ -1,8 +1,6 @@
 package br.com.carstore.servlet;
 
-import dao.CarDao;
 import dao.ComentarioDao;
-import model.Car;
 import model.Coment;
 
 import javax.servlet.ServletException;
@@ -14,34 +12,32 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet("/exibir-coment")
-    public class ExibirComentServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+@WebServlet("/exibirComentarios")
+public class ExibirComentServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ComentarioDao comentDAO = new ComentarioDao();
+        List<Coment> comentarios = comentDAO.ExibirComent();
 
-        List<Coment> coments = new ComentarioDao().ExibirComent();
+        // Configurar o tipo de conteúdo da repost
+        response.setContentType("text/html;charset=UTF-8");
 
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
+        // Escrever os comentários na resposta
+        PrintWriter out = response.getWriter();
+        ((PrintWriter) out).println("<html>");
+        out.println("<head><title>Comentários</title></head>");
+        out.println("<body>");
 
-        PrintWriter out = resp.getWriter();
-        out.print("[");
-        for (int i = 0; i < coments.size(); i++) {
-            Coment coment = coments.get(i);
-            out.print("{");
-            out.print("\"Comentario\":\"" + coment.getIdComentario() + "\",");
-            out.print("\"jogo\":\"" + coment.getId() + "\",");
-            out.print("\"conteudo\":\"" + coment.getConteudo() + "\"");
-            out.print("}");
-            if (i < coments.size() - 1) {
-                out.print(",");
+        if (comentarios.isEmpty()) {
+            out.println("<p>Nenhum comentário encontrado.</p>");
+        } else {
+            out.println("<ul>");
+            for (Coment coment : comentarios) {
+                out.println(coment.getConteudo() );
             }
+            out.println("</ul>");
         }
-        out.print("]");
 
-
-
-
+        out.println("</body>");
+        out.println("</html>");
     }
-
 }

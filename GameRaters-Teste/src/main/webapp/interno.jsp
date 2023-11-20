@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Coment" %>
+<%@ page import="dao.ComentarioDao" %>
+<%
+    // Recupera a lista de comentários do banco de dados
+    ComentarioDao comentarioDao = new ComentarioDao();
+    List<Coment> comentarios = comentarioDao.ExibirComent();
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -77,38 +85,41 @@
         </div>
 
         <div class="p-5">
-            <form action="/comentServlet" method="post">
-            <label for="comentario">Deixe seu comentário</label>
-                <input type="text" class="form-control Comments" name="comentario" id="comentario" required>
-            <br>
-            <button type="submit" class="Comentar" >ENVIAR</button>
-            </form>
+            <c:if test="${empty sessionScope.usuario}">
+                <div class="alert alert-info" role="alert">
+                    Faça o login para comentar.
+                    <a href="Login.jsp" class="alert-link">Login</a>
+                </div>
+            </c:if>
+
+            <c:if test="${not empty sessionScope.usuario}">
+                <!-- Usuário está logado, exibir formulário de comentário -->
+                <form action="/comentServlet" method="post">
+                    <div class="form-group">
+                        <label for="comentario">Deixe seu comentário</label>
+                        <textarea class="form-control" name="comentario" id="comentario" required></textarea>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">ENVIAR</button>
+                </form>
+            </c:if>
         </div>
 
+        <!-- Exibe os comentários -->
         <div id="container1">
-            <h1>Comentarios</h1>
-            <div class="perfil">
-                <img src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="">
-                <h6>Mauricio de souza</h6>
+            <h1>Comentários</h1>
 
-                <p>Mui Buneo o jogo juguem</p>
+                <% for (Coment coment : comentarios) { %>
+                    <div class="perfil">
+                        <img src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="">
+                        <h6>Mauricio de Souza</h6>
+                        <p><%= coment.getConteudo() %></p>
+                    </div>
 
-            </div>
-            <div class="perfil">
-                <img src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="">
-                <h6>Lucas da silva</h6>
+                <% } %>
 
-                <p>Mui Buneo o jogo juguem</p>
-
-            </div>
-            <div class="perfil">
-                <img src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="">
-                <h6>Gabriel Barbosa Maia</h6>
-
-                <p>Mui Buneo o jogo juguem</p>
-
-            </div>
         </div>
+
     </div>
     <footer class="text-light py-3" style="background-color: #1C1C1C;">
         <div class="container">
@@ -155,5 +166,7 @@
     });
 </script>
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="ScriptInterno.js"></script>
 
 </body>
