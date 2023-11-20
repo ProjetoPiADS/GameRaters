@@ -6,13 +6,15 @@ public class Usuario {
     private String Email;
     private String Nick;
     private String Senha;
+    private String url;
 
-    public Usuario(int id, String name, String email, String nick, String senha) {
+    public Usuario(int id, String name, String email, String nick, String senha, String url) {
         this.Id = id;
         this.name = name;
         this.Email = email;
         this.Nick = nick;
         this.Senha = senha;
+        this.url = url;
     }
 
     public Usuario() {
@@ -57,5 +59,13 @@ public class Usuario {
 
     public void setSenha(String senha) {
         Senha = senha;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

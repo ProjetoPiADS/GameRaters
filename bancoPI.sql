@@ -12,19 +12,16 @@ CREATE TABLE usuario (
     nome VARCHAR(255) NOT NULL,
     nick VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    senha VARCHAR(255) NOT NULL
+    senha VARCHAR(255) NOT NULL,
+    url varchar(255) 
 );
 
-create table opinioes(
-reviewID int primary key auto_increment,
-gameID int,
-authorName varchar(200),
-authorID int,
-reviewText text,
-rating int,
-reviewDate date,
-foreign key (gameID) references games(gameID),
-foreign key (authorID) references usuario(authorID));
+CREATE TABLE COMENTARIO (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    ID_CAR INT,
+    CONTEUDO VARCHAR(255),
+    FOREIGN KEY (ID_CAR) REFERENCES CAR (ID)
+);
 
 
 

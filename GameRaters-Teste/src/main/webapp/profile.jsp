@@ -7,8 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <!--===============================================================================================-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!--===============================================================================================-->
@@ -16,8 +14,8 @@
             integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
             crossorigin="anonymous"></script>
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="styleUser.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="styleUser.css">
+
     <title>GameRaters</title>
 </head>
 <body>
@@ -52,7 +50,7 @@
                             Bem-vindo, ${sessionScope.usuario.name} <!-- Substitua 'name' pelo atributo correto do seu objeto Usuario -->
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="profile.jsp">Perfil</a></li>
+                            <li><a class="dropdown-item" href="/show-user-name">Perfil</a></li>
                             <!-- Adiciona a opção "Tela Adm" apenas para o usuário com email "admin@gmail.com" -->
                             <c:if test="${sessionScope.usuario.email eq 'admin@gmail.com'}">
                                 <li><a class="dropdown-item" href="telaAdm.jsp">Tela Adm</a></li>
@@ -74,31 +72,68 @@
 <main>
     <div class="profile">
         <div class="profile-image" id="profile-image">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrt9pN1mLwwnVRHG2ALMO5xCLqCtzXz0NLbw&usqp=CAU" alt="Foto de perfil">
-            <div class="button-profile-image">
-                <input type="file" id="image-upload" accept="image/*" >
-                <label for="image-upload" class="upload-button">Editar foto de perfil</label>
-            </div>
+        <c:forEach var="user" items="${users}">
+                <c:if test="${user.id eq sessionScope.usuario.id}">
+                                <img src="${user.url}" alt="Foto de perfil">
+                </c:if>
+        </c:forEach>
         </div>
             <div class="profile-text">
-                <c:forEach var="User" items="${users}">
-                    <h1>${User.name}</h1>
-                </c:forEach>
-                    <p>10 Seguidores</p>
+                    <h1>${sessionScope.usuario.nick}</h1>
                     <p>3 Comentários</p>
+                    <button type="button" id="mostrar-esconder" onclick="toggleVisibility()">Alterar foto de perfil</button>
+                    <script>
+                    function toggleVisibility() {
+                        var container = document.getElementById("controls-container");
+                        if (container.style.display === "none") {
+                            container.style.display = "block";
+                        } else {
+                            container.style.display = "none";
+                        }
+                    }
+                    </script>
+                    <div class="profile-controls" id="controls-container">
+                        <form id="profile-form" action="/show-user-name" method="post" onsubmit="return validateForm()">
+                            <label for="url-imagem">Insira a URL da imagem:</label>
+                            <input type="text" name="url" id="url" value="${usuario.url}" />
+                            <input type="hidden" id="id" name="id" value="${usuario.id}">
+                            <button type="submit">Confirmar</button>
+                        </form>
+
+                        <script>
+                                function validateForm() {
+                                    // Obter o valor da URL
+                                    var urlInput = document.getElementById("url").value;
+
+                                    // Expressão regular para validar a URL começando com "https://"
+                                    var urlPattern = /^https:\/\//;
+
+                                    // Verificar se a URL atende ao padrão
+                                    if (!urlPattern.test(urlInput)) {
+                                        alert("Por favor, insira uma URL que comece com 'https://'.");
+                                        return false; // Impedir o envio do formulário se a validação falhar
+                                    }
+
+                                    // Se a validação for bem-sucedida, permitir o envio do formulário
+                                    return true;
+                                }
+                            </script>
+                    </div>
             </div>
+
     </div>
-        <script src="scriptUsuario.js"></script>
+
     <br>
     <h2 class="text">Comentários</h2>
 
     <div id="container1">
         <div class="perfil">
-            <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <c:forEach var="User" items="${users}">
-                <h6>${User.name}</h6>
-            </c:forEach>
-
+            <c:forEach var="user" items="${users}">
+                            <c:if test="${user.nick eq sessionScope.usuario.nick}">
+                                            <img src="${user.url}" alt="Foto de perfil">
+                            </c:if>
+                    </c:forEach>
+                <h6>${sessionScope.usuario.nick}</h6>
             <p>Jogo incrível, gameplay dinâmica e história cativante.</p>
 
         </div>
@@ -106,10 +141,12 @@
 
     <div id="container2">
         <div class="perfil">
-            <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <c:forEach var="User" items="${users}">
-            <h6>${User.name}</h6>
-            </c:forEach>
+            <c:forEach var="user" items="${users}">
+                            <c:if test="${user.nick eq sessionScope.usuario.nick}">
+                                            <img src="${user.url}" alt="Foto de perfil">
+                            </c:if>
+                    </c:forEach>
+            <h6>${sessionScope.usuario.nick}</h6>
             <p>Gostei muito do jogo, não vejo a hora de uma sequência.</p>
 
         </div>
@@ -117,10 +154,12 @@
 
     <div id="container3">
         <div class="perfil">
-            <img src="https://static.wikia.nocookie.net/spidermanps4/images/d/d9/IMG_4563.PNG/revision/latest/thumbnail/width/360/height/360?cb=20230721010243" alt="">
-            <c:forEach var="User" items="${users}">
-                <h6>${User.name}</h6>
-            </c:forEach>
+            <c:forEach var="user" items="${users}">
+                            <c:if test="${user.nick eq sessionScope.usuario.nick}">
+                                            <img src="${user.url}" alt="Foto de perfil">
+                            </c:if>
+                    </c:forEach>
+            <h6>${sessionScope.usuario.nick}</h6>
 
             <p>Achei um pouco decepcionante.</p>
 

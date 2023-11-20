@@ -1,19 +1,16 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const imageUpload = document.getElementById("image-upload");
-    const profileImage = document.getElementById("profile-image");
+function loadImage() {
+      var imageUrl = document.getElementById('imageInput').value;
+      var profileImage = document.getElementById('profileImage');
 
-    imageUpload.addEventListener("change", function() {
-        const file = imageUpload.files[0];
+      // Limpar a imagem existente
+      profileImage.innerHTML = '';
 
-        if (file) {
-            const reader = new FileReader();
+      // Criar uma nova imagem
+      var img = new Image();
+      img.src = imageUrl;
+      img.alt = 'Imagem de Perfil';
 
-            reader.onload = function(e) {
-                profileImage.innerHTML = `<img src="${e.target.result}" alt="Foto de Perfil">`;
-            };
-
-            reader.readAsDataURL(file);
-        }
-    });
-});
+      // Adicionar a nova imagem ao elemento div
+      profileImage.appendChild(img);
+    }
 

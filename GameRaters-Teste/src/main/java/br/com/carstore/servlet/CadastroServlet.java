@@ -21,7 +21,7 @@ public class CadastroServlet extends HttpServlet {
 
         UsuarioDao usuarioDao = new UsuarioDao();
 
-        Usuario novoUsuario = new Usuario(0, nome, email, nick, senha);
+        Usuario novoUsuario = new Usuario(0, nome, email, nick, senha, "https://www.promoview.com.br/uploads/2017/04/b72a1cfe.png");
 
         if (usuarioDao.inserirUsuario(novoUsuario)) {
             // Cadastro bem-sucedido, redirecione para o login com uma mensagem de sucesso

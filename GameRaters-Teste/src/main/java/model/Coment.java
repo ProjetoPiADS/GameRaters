@@ -1,40 +1,44 @@
 package model;
 
 public class Coment {
-    private String Contedudo;
-    private Car car;
-    private Usuario usuario;
+    private int idComentario;
+    private String id;
+    private String conteudo;
 
-    public Coment(String comentario, Car car, Usuario usuario) {
-        Contedudo = comentario;
-        this.car = car;
-        this.usuario = usuario;
+    public Coment(int idComentario, String id, String conteudo) {
+        this.idComentario = idComentario;
+        this.id = id;
+        this.conteudo = conteudo;
     }
 
-    public Coment(int idComentario, int idUsuario, int idCar, String conteudo) {
+    public Coment(String conteudo) {
+        this.conteudo = conteudo;
+
     }
 
-    public String getComentario() {
-        return Contedudo;
+
+
+    public int getIdComentario() {
+        return idComentario;
     }
 
-    public void setComentario(String comentario) {
-        Contedudo = comentario;
+    public void setIdComentario(int idComentario) {
+        this.idComentario = idComentario;
     }
 
-    public int getCar() {
-        return car.getId();
+    public String getConteudo() {
+        return conteudo;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setConteudo(String conteudo) {
+        this.conteudo = conteudo;
     }
 
-    public int getUsuario() {
-        return usuario.getId();
+    public String getId() {
+        return id;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setId(String id) {
+        this.id = id;
     }
 }
