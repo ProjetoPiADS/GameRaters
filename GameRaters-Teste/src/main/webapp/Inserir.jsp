@@ -26,15 +26,17 @@
                 <input type="text" class="form-control" name="car-name" id="car-name" value="${param.name}" required>
             </div>
 
-           <div class="form-group">
-               <label for="car-description">Descrição do Jogo</label>
-               <input type="text" class="form-control" name="car-description" id="car-description" oninput="exibirDescricao(this.value)" value="${param.description}">
-           </div>
+            <div class="form-group">
+                <label for="car-description">Descrição do Jogo</label>
+                <input type="text" class="form-control" name="car-description" id="car-description" oninput="exibirDescricao(this.value)" value="${param.description}">
+            </div>
 
             <div class="form-group">
                 <label for="car-imgurl">Jogos img urL</label>
                 <input type="text" class="form-control" name="car-imgurl" id="car-imgurl" value="${param.imgurl}">
             </div>
+
+            <input type="hidden" class="form-control" name="car-id" id="car-id" value="${param.id}">
 
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" id="register-button">Registrar</button>

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -88,7 +91,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Editar</h5>
                     <p class="card-text">Clique aqui para editar um item.</p>
-                    <a href="#" class="btn btn-primary">Editar</a>
+                    <a href="/find-all-cars" class="btn btn-primary">Editar</a>
                 </div>
             </div>
         </div>
@@ -99,7 +102,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Excluir</h5>
                     <p class="card-text">Clique aqui para excluir um item.</p>
-                    <a href="#" class="btn btn-danger">Excluir</a>
+                    <a href="/find-all-cars" class="btn btn-danger">Excluir</a>
                 </div>
             </div>
         </div>

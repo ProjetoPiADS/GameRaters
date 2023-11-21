@@ -1,11 +1,12 @@
 package br.com.carstore.servlet;
 
+import dao.CarDao;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import dao.CarDao;
 
 @WebServlet("/delete-car")
 public class DeleteServlet extends HttpServlet {
