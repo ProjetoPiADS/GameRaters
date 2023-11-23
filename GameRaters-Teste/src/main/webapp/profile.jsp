@@ -79,9 +79,12 @@
         </c:forEach>
         </div>
             <div class="profile-text">
-                    <h1>${sessionScope.usuario.nick}</h1>
-                    <p>3 Comentários</p>
-                    <button type="button" id="mostrar-esconder" onclick="toggleVisibility()">Alterar foto de perfil</button>
+            <c:forEach var="user" items="${users}">
+                            <c:if test="${user.nick eq sessionScope.usuario.nick}">
+                                            <h1>${user.nick}</h1>
+                            </c:if>
+                    </c:forEach>
+                    <button type="button" id="mostrar-esconder" onclick="toggleVisibility()">Alterar dados</button>
                     <script>
                     function toggleVisibility() {
                         var container = document.getElementById("controls-container");
@@ -96,6 +99,8 @@
                         <form id="profile-form" action="/show-user-name" method="post" onsubmit="return validateForm()">
                             <label for="url-imagem">Insira a URL da imagem:</label>
                             <input type="text" name="url" id="url" value="${usuario.url}" />
+                            <label for="url-imagem">Insira o nick:</label>
+                            <input type="text" name="nick" id="nick" value="${usuario.nick}" />
                             <input type="hidden" id="id" name="id" value="${usuario.id}">
                             <button type="submit">Confirmar</button>
                         </form>

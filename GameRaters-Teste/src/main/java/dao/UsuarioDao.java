@@ -88,9 +88,6 @@ public class UsuarioDao {
             }
             System.out.println("success in select NICK, URL from user");
 
-
-            connection.close();
-
             return users;
 
         } catch (Exception e) {
@@ -104,7 +101,7 @@ public class UsuarioDao {
     }
 
     public void updateProfile(Usuario user){
-        String SQL = "UPDATE USUARIO SET URL = ? WHERE ID = ?";
+        String SQL = "UPDATE USUARIO SET URL = ?, NICK = ? WHERE ID = ?";
 
         try {
 
@@ -115,12 +112,12 @@ public class UsuarioDao {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             preparedStatement.setString(1, user.getUrl());
-            preparedStatement.setInt(2, user.getId());
+            preparedStatement.setString(2, user.getNick());
+            preparedStatement.setInt(3, user.getId());
             preparedStatement.execute();
 
-            System.out.println("success in update picture");
+            System.out.println("success in update profile");
 
-            connection.close();
 
         } catch (Exception e) {
 
